@@ -216,7 +216,7 @@
 
 <script>
 export default {
-name: "AppCart"
+name: "Cart"
 }
 </script>
 

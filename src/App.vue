@@ -1,15 +1,15 @@
 <template>
   <div id="app" class="wrapper">
-    <app-header/>
+    <Header/>
     <router-view/>
   </div>
 </template>
 
 <script>
-import AppHeader from "@/components/AppHeader";
+import Header from "@/components/Header";
 
 export default {
-  components: {AppHeader}
+  components: {Header}
 }
 </script>
 

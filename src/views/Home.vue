@@ -2,16 +2,7 @@
     <div class="content">
       <div class="container">
         <div class="content__top">
-          <div class="categories">
-            <ul>
-              <li class="active">Все</li>
-              <li>Мясные</li>
-              <li>Вегетарианская</li>
-              <li>Гриль</li>
-              <li>Острые</li>
-              <li>Закрытые</li>
-            </ul>
-          </div>
+         <categories/>
           <div class="sort">
             <div class="sort__label">
               <svg
@@ -380,8 +371,10 @@
 </template>
 
 <script>
+import Categories from "@/components/Categories";
 export default {
-  name: "Home"
+  name: "Home",
+  components: {Categories}
 }
 </script>
 

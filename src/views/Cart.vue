@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import AppCart from "@/components/AppCart";
-import AppCartEmpty from "@/components/AppCartEmpty";
+import AppCart from "@/components/Cart";
+import AppCartEmpty from "@/components/CartEmpty";
 export default {
 name: "Cart",
   components: {AppCartEmpty, AppCart}
