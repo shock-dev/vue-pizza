@@ -3,9 +3,9 @@
     <div class="header">
       <div class="container">
         <div class="header__logo">
-          <img width="38" src="" alt="Pizza logo" />
+          <img width="38" src="../assets/img/pizza-logo.svg" alt="Pizza logo" />
           <div>
-            <h1>React Pizza</h1>
+            <h1>Pizza</h1>
             <p>самая вкусная пицца во вселенной</p>
           </div>
         </div>
