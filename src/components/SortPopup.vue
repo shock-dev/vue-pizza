@@ -2,6 +2,7 @@
   <div class="sort">
     <div class="sort__label">
       <svg
+          :class="{rotated: visible}"
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -14,7 +15,7 @@
         />
       </svg>
       <b>Сортировка по:</b>
-      <span @click="visible = !visible">популярности</span>
+      <span @click="visible = !visible">{{ sortItems[sortActive] }}</span>
     </div>
     <div class="sort__popup" v-show="visible">
       <ul>
@@ -59,6 +60,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+  .rotated {
+    transform: rotate(180deg);
+  }
 </style>
