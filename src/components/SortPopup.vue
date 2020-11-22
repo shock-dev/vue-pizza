@@ -14,21 +14,48 @@
         />
       </svg>
       <b>Сортировка по:</b>
-      <span>популярности</span>
+      <span @click="visible = !visible">популярности</span>
     </div>
-    <div class="sort__popup">
+    <div class="sort__popup" v-show="visible">
       <ul>
-        <li class="active">популярности</li>
-        <li>цене</li>
-        <li>алфавиту</li>
+        <li v-for="(item, index) in sortItems"
+            :key="item + ' - ' + index"
+            :class="{active: sortActive === index}"
+            @click="changeSort(index)"
+        >{{ item }}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-name: "SortPopup"
+  name: "SortPopup",
+  data() {
+    return {
+      visible: false
+    }
+  },
+  created() {
+    const onClickOutside = e => this.visible = this.$el.contains(e.target) && this.visible;
+    document.addEventListener('click', onClickOutside);
+    this.$on('hook:beforeDestroy', () => document.removeEventListener('click', onClickOutside));
+  },
+  computed: {
+    ...mapGetters('sort', {
+      sortItems: 'items',
+      sortActive: 'active'
+    })
+  },
+  methods: {
+    changeSort(id) {
+      this.$store.commit('sort/changeSort', id)
+
+      this.visible = false
+    }
+  }
 }
 </script>
 
