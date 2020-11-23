@@ -10,14 +10,16 @@
       <ul>
         <li v-for="(item, index) in types"
             :key="index"
-            :class="{active: active === index ? 'active' : '', disabled: !activeTypes.includes(index)}"
+            :class="{active: active === index, disabled: !activeTypes.includes(index)}"
             @click="selectActiveType(index)"
         >{{ item }}</li>
       </ul>
       <ul>
-        <li class="active">26 см.</li>
-        <li>30 см.</li>
-        <li>40 см.</li>
+        <li v-for="(size, index) in sizes"
+            :key="index"
+            :class="{active: activeSize === size, disabled: !activeSizes.includes(size)}"
+            @click="selectActiveSize(size)"
+        >{{ size }} см.</li>
       </ul>
     </div>
     <div class="pizza-block__bottom">
@@ -51,18 +53,23 @@ export default {
     'price',
     'rating',
     'activeTypes',
-    'sizes',
+    'activeSizes',
     'category'
   ],
   data() {
     return {
       active: this.activeTypes[0],
-      types: ['тонкое', 'традиционное']
+      activeSize: this.activeSizes[0],
+      types: ['тонкое', 'традиционное'],
+      sizes: [26, 30, 40]
     }
   },
   methods: {
     selectActiveType(id) {
       this.active = id
+    },
+    selectActiveSize(size) {
+      this.activeSize = size
     }
   }
 }

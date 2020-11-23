@@ -6,7 +6,7 @@
         :title="item.name"
         :img="item.imageUrl"
         :activeTypes="item.types"
-        :sizes="item.types"
+        :activeSizes="item.sizes"
         :price="item.price"
         :category="item.category"
         :rating="item.rating"
