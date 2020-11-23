@@ -5,7 +5,7 @@
         :key="item.id"
         :title="item.name"
         :img="item.imageUrl"
-        :types="item.types"
+        :activeTypes="item.types"
         :sizes="item.types"
         :price="item.price"
         :category="item.category"
