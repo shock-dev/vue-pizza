@@ -13,9 +13,9 @@ export default {
     actions: {
         getItems({commit}) {
             axios
-                .get('http://localhost:8080/db.json')
+                .get('http://localhost:3000/pizzas')
                 .then(res => {
-                    commit('setItems', res.data['pizzas'])
+                    commit('setItems', res.data)
                 })
         }
     },
