@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     selectItem(id) {
-      this.$store.commit('categories/selectItem', id)
+      this.$store.dispatch('categories/getProducts', id)
     },
     selectDefItem() {
       this.$store.commit('categories/selectItem', null)
