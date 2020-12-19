@@ -20,8 +20,6 @@ export default {
         }
     },
     getters: {
-        items(state) {
-            return state.items
-        }
+        items: ({items}) => items
     }
 }

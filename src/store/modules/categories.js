@@ -10,11 +10,7 @@ export default {
         }
     },
     getters: {
-        items(state) {
-            return state.items
-        },
-        active(state) {
-            return state.active
-        }
+        items: ({items}) => items,
+        active: ({active}) => active
     }
 }
