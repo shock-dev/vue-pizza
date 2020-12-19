@@ -15,20 +15,17 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
 import Product from "@/components/Product";
 
 export default {
   name: "ProductsList",
-  components: {Product},
-  mounted() {
-    this.$store.dispatch('products/getItems')
+  props: {
+    products: {
+      type: Array,
+      default: () => []
+    }
   },
-  computed: {
-    ...mapGetters('products', {
-      products: 'items'
-    })
-  }
+  components: {Product}
 }
 </script>
 

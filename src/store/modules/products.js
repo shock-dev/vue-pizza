@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { getProducts } from '@/services/product.service'
 
 export default {
     namespaced: true,
@@ -11,12 +11,13 @@ export default {
         }
     },
     actions: {
-        getItems({commit}) {
-            axios
-                .get('http://localhost:3000/pizzas')
-                .then(({data}) => {
-                    commit('setItems', data)
-                })
+        async fetchItems({commit}) {
+            try {
+                const products = await getProducts()
+                commit('setItems', products)
+            } catch (e) {
+                console.log(e)
+            }
         }
     },
     getters: {
