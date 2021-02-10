@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: "SortPopup",
@@ -51,9 +51,9 @@ export default {
     })
   },
   methods: {
+    ...mapMutations('sort', ['setSort']),
     changeSort(id) {
-      this.$store.commit('sort/changeSort', id)
-
+      this.setSort(id)
       this.visible = false
     }
   }

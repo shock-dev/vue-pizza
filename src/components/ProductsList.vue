@@ -26,15 +26,42 @@ export default {
       default: () => []
     }
   },
-  components: { Product },
+  components: {
+    Product
+  },
   computed: {
-    ...mapGetters('categories', ['active']),
+    ...mapGetters('categories', {
+      categoryActive: 'active'
+    }),
+    ...mapGetters('sort', ['getActiveFilter']),
     getProductsByCategory() {
-      if (this.active !== null) {
-        return this.products.filter(item => item.category === this.active)
+      // Filter by Category
+      let filteredProducts = [...this.products]
+
+      if (this.categoryActive !== null) {
+        filteredProducts = filteredProducts.filter(item => item.category === this.categoryActive)
       }
 
-      return this.products
+      // Sorting by price
+      if (this.getActiveFilter === 'цене') {
+        filteredProducts = filteredProducts.sort((a, b) => b.price - a.price)
+      }
+
+      // Sorting by popular
+      if (this.getActiveFilter === 'популярности') {
+        filteredProducts = filteredProducts.sort((a, b) => b.rating - a.rating)
+      }
+
+      // Sorting by alphabet
+      if (this.getActiveFilter === 'алфавиту') {
+        filteredProducts = filteredProducts.sort(function(a, b){
+          if(a.name < b.name) { return -1; }
+          if(a.name > b.name) { return 1; }
+          return 0;
+        })
+      }
+
+      return filteredProducts
     }
   }
 }

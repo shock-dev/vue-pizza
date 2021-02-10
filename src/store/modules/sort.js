@@ -5,12 +5,13 @@ export default {
         active: 0
     },
     mutations: {
-        changeSort(state, id) {
+        setSort(state, id) {
             state.active = id
         }
     },
     getters: {
-        items: ({items}) => items,
-        active: ({active}) => active
+        items: ({ items }) => items,
+        active: ({ active }) => active,
+        getActiveFilter: ({ active, items }) => items[active]
     }
 }
