@@ -1,7 +1,7 @@
 <template>
   <div class="categories">
     <ul>
-      <li :class="{active: active === null}" @click="selectDefItem">Все</li>
+      <li :class="{active: active === null}" @click="selectItem(null)">Все</li>
       <li v-for="(item, index) in categories"
           :key="item + '_' + index"
           @click="selectItem(index)"
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: "Categories",
@@ -23,17 +23,8 @@ export default {
     })
   },
   methods: {
-    selectItem(id) {
-      this.$store.dispatch('categories/getProducts', id)
-    },
-    selectDefItem() {
-      this.$store.commit('categories/selectItem', null)
-    }
+    ...mapMutations('categories', ['selectItem'])
   }
 
 }
 </script>
-
-<style scoped>
-
-</style>

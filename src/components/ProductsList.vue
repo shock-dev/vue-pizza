@@ -1,7 +1,7 @@
 <template>
   <div class="content__items">
     <product
-        v-for="item in products"
+        v-for="item in getProductsByCategory"
         :key="item.id"
         :title="item.name"
         :img="item.imageUrl"
@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import Product from "@/components/Product";
+import Product from "@/components/Product"
+import { mapGetters } from 'vuex'
 
 export default {
   name: "ProductsList",
@@ -25,10 +26,16 @@ export default {
       default: () => []
     }
   },
-  components: {Product}
+  components: { Product },
+  computed: {
+    ...mapGetters('categories', ['active']),
+    getProductsByCategory() {
+      if (this.active !== null) {
+        return this.products.filter(item => item.category === this.active)
+      }
+
+      return this.products
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

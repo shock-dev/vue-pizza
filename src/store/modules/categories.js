@@ -5,8 +5,8 @@ export default {
         active: null
     },
     mutations: {
-        selectItem(state, id) {
-            state.active = id
+        selectItem(state, val) {
+            state.active = val
         }
     },
     getters: {
