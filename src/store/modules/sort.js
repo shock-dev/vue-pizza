@@ -1,7 +1,9 @@
+const sort = ['популярности', 'цене', 'алфавиту']
+
 export default {
     namespaced: true,
     state: {
-        items: ['популярности', 'цене', 'алфавиту'],
+        items: sort,
         active: 0
     },
     mutations: {

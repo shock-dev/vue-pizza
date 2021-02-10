@@ -1,7 +1,9 @@
+const categories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
+
 export default {
     namespaced: true,
     state: {
-        items: ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'],
+        items: categories,
         active: null
     },
     mutations: {
@@ -11,6 +13,6 @@ export default {
     },
     getters: {
         items: ({items}) => items,
-        active: ({active}) => active
+        getActiveCategory: ({active}) => active
     }
 }

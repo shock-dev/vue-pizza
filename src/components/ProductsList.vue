@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Product from "@/components/Product"
+import Product from '@/components/Product'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -30,16 +30,14 @@ export default {
     Product
   },
   computed: {
-    ...mapGetters('categories', {
-      categoryActive: 'active'
-    }),
+    ...mapGetters('categories', ['getActiveCategory']),
     ...mapGetters('sort', ['getActiveFilter']),
     getProductsByCategory() {
       // Filter by Category
       let filteredProducts = [...this.products]
 
-      if (this.categoryActive !== null) {
-        filteredProducts = filteredProducts.filter(item => item.category === this.categoryActive)
+      if (this.getActiveCategory !== null) {
+        filteredProducts = filteredProducts.filter(item => item.category === this.getActiveCategory)
       }
 
       // Sorting by price

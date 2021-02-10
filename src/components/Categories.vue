@@ -19,7 +19,7 @@ export default {
   computed: {
     ...mapGetters('categories', {
       categories: 'items',
-      active: 'active'
+      active: 'getActiveCategory'
     })
   },
   methods: {
