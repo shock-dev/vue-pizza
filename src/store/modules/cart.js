@@ -6,6 +6,9 @@ export default {
     mutations: {
         setProduct(state, product) {
             state.products.push(product)
+        },
+        clearCart(state) {
+            state.products = []
         }
     },
     getters: {
