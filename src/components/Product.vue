@@ -24,7 +24,7 @@
     </div>
     <div class="pizza-block__bottom">
       <div class="pizza-block__price">от {{ price }} ₽</div>
-      <div class="button button--outline button--add">
+      <div class="button button--outline button--add" @click="$emit('addProductToCart')">
         <svg
             width="12"
             height="12"

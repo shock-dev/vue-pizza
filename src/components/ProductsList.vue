@@ -10,13 +10,14 @@
         :price="item.price"
         :category="item.category"
         :rating="item.rating"
+        @addProductToCart="addProductToCart(item)"
     />
   </div>
 </template>
 
 <script>
 import Product from '@/components/Product'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "ProductsList",
@@ -61,6 +62,12 @@ export default {
       }
 
       return filteredProducts
+    }
+  },
+  methods: {
+    ...mapActions('cart', ['addProduct']),
+    addProductToCart(item) {
+      this.addProduct(item)
     }
   }
 }
