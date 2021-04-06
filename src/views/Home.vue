@@ -3,7 +3,8 @@
     <div class="content__top">
       <Categories
         :items="categories"
-        :active="null"
+        :active="category"
+        @clickCategory="setCategory"
       />
       <div class="sort">
         <div class="sort__label">
@@ -76,6 +77,8 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 // Components
 import Categories from '@/components/Categories'
 
@@ -89,6 +92,16 @@ export default {
   },
   data: () => ({
     categories
-  })
+  }),
+  computed: {
+    ...mapGetters('filters', [
+      'category'
+    ])
+  },
+  methods: {
+    ...mapMutations('filters', [
+      'setCategory'
+    ])
+  }
 }
 </script>

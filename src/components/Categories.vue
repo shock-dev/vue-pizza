@@ -1,11 +1,17 @@
 <template>
   <div class="categories">
     <ul>
-      <li :class="{ active: active === null }">Все</li>
+      <li
+        :class="{ active: active === null }"
+        @click="$emit('clickCategory', null)"
+      >
+        Все
+      </li>
       <li
         v-for="(name, index) in items"
         :key="name"
         :class="{ active: active === index }"
+        @click="$emit('clickCategory', index)"
       >
         {{ name }}
       </li>
@@ -18,7 +24,7 @@ export default {
   name: 'Categories',
   props: {
     items: { type: Array, required: true },
-    active: { type: Number, required: true }
+    active: { required: true }
   }
 }
 </script>
