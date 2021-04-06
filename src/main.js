@@ -5,6 +5,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// Directives
+import './directives/vClickOutside'
+
 new Vue({
   router,
   store,
