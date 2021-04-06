@@ -1,17 +1,3 @@
 <template>
-  <div id="app" class="wrapper">
-    <Header/>
-    <router-view/>
-  </div>
+  <div id="app"></div>
 </template>
-
-<script>
-import Header from "@/components/Header";
-
-export default {
-  components: {Header}
-}
-</script>
-
-<style>
-</style>
