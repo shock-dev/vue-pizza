@@ -16,4 +16,4 @@ export default {
 }
 </script>
 
-<style src="./scss/app.scss" lang="scss" />
+<style src="./assets/scss/app.scss" lang="scss" />
