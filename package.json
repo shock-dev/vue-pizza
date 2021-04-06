@@ -5,6 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "db": "npx json-server public/db.json --port=5000",
+    "dev": "concurrently \"yarn db\" \"yarn serve\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
