@@ -66,13 +66,13 @@
           <span> Сумма заказа: <b>900 ₽</b> </span>
         </div>
         <div class="cart__bottom-buttons">
-          <a href="/" class="button button--outline button--add go-back-btn">
+          <router-link class="button button--outline button--add go-back-btn" :to="{ name: 'Home' }">
             <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
 
             <span>Вернуться назад</span>
-          </a>
+          </router-link>
           <div class="button pay-btn">
             <span>Оплатить сейчас</span>
           </div>
@@ -86,9 +86,9 @@
         Для того, чтобы заказать пиццу, перейди на главную страницу.
       </p>
       <img src="../assets/img/empty-cart.png" alt="Empty cart" />
-      <a href="/" class="button button--black">
+      <router-link class="button button--black" :to="{ name: 'Home' }">
         <span>Вернуться назад</span>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
@@ -97,7 +97,7 @@
 export default {
   name: 'Cart',
   data: () => ({
-    isCartEmpty: true
+    isCartEmpty: false
   })
 }
 </script>
