@@ -13,7 +13,13 @@
       />
     </div>
     <h2 class="content__title">Все пиццы</h2>
-    <div class="content__items">
+    <div v-if="loading" class="content__items">
+      <PizzaLoader
+        v-for="c in 8"
+        :key="c"
+      />
+    </div>
+    <div v-else class="content__items">
       <PizzaBlock
         v-for="(item) in pizzas"
         :key="item.id"
@@ -39,15 +45,17 @@ import {
 // Components
 import Categories from '@/components/Categories'
 import Sort from '@/components/Sort'
+import PizzaBlock from '@/components/PizzaBlock'
+import PizzaLoader from '@/components/PizzaLoader'
 
 // Resources
 import categories from '@/resources/categories'
 import sorts from '@/resources/sorts'
-import PizzaBlock from '@/components/PizzaBlock'
 
 export default {
   name: 'Home',
   components: {
+    PizzaLoader,
     Categories,
     Sort,
     PizzaBlock
@@ -65,7 +73,8 @@ export default {
       'sortBy'
     ]),
     ...mapGetters('pizza', [
-      'pizzas'
+      'pizzas',
+      'loading'
     ])
   },
   methods: {
