@@ -1,16 +1,10 @@
 <template>
   <div class="container">
     <div class="content__top">
-      <div class="categories">
-        <ul>
-          <li class="active">Все</li>
-          <li>Мясные</li>
-          <li>Вегетарианская</li>
-          <li>Гриль</li>
-          <li>Острые</li>
-          <li>Закрытые</li>
-        </ul>
-      </div>
+      <Categories
+        :items="categories"
+        :active="null"
+      />
       <div class="sort">
         <div class="sort__label">
           <svg
@@ -82,7 +76,19 @@
 </template>
 
 <script>
+// Components
+import Categories from '@/components/Categories'
+
+// Resources
+import categories from '@/resources/categories'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Categories
+  },
+  data: () => ({
+    categories
+  })
 }
 </script>
