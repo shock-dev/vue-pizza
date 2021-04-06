@@ -36,11 +36,7 @@
 </template>
 
 <script>
-import {
-  mapGetters,
-  mapMutations,
-  mapActions
-} from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 // Components
 import Categories from '@/components/Categories'
@@ -81,9 +77,6 @@ export default {
     ...mapMutations('filters', [
       'setCategory',
       'setSortBy'
-    ]),
-    ...mapActions('pizza', [
-      'fetchPizzas'
     ])
   }
 }
