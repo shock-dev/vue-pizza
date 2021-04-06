@@ -3,7 +3,7 @@
     <ul>
       <li
         :class="{ active: active === null }"
-        @click="$emit('clickCategory', null)"
+        @click="clickCategoryHandler(null)"
       >
         Все
       </li>
@@ -11,7 +11,7 @@
         v-for="(name, index) in items"
         :key="name"
         :class="{ active: active === index }"
-        @click="$emit('clickCategory', index)"
+        @click="clickCategoryHandler(index)"
       >
         {{ name }}
       </li>
@@ -25,6 +25,13 @@ export default {
   props: {
     items: { type: Array, required: true },
     active: { required: true }
+  },
+  methods: {
+    clickCategoryHandler(val) {
+      if (val !== this.active) {
+        this.$emit('clickCategory', val)
+      }
+    }
   }
 }
 </script>
