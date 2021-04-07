@@ -30,13 +30,18 @@
         :rating="item.rating"
         :types="item.types"
         :sizes="item.sizes"
+        @plusPizza="addPizzaHandler(item.id, $event)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import {
+  mapGetters,
+  mapMutations,
+  mapActions
+} from 'vuex'
 
 // Components
 import Categories from '@/components/Categories'
@@ -79,7 +84,13 @@ export default {
     ...mapMutations('filters', [
       'setCategory',
       'setSortBy'
-    ])
+    ]),
+    ...mapActions('cart', [
+      'plusPizza'
+    ]),
+    addPizzaHandler(id, pizza) {
+      this.plusPizza({ id, pizza })
+    }
   }
 }
 </script>
