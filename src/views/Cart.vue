@@ -18,7 +18,7 @@
           <span>Очистить корзину</span>
         </div>
       </div>
-      <div class="content__items">
+      <div class="content__items" :key="cartArray.length">
         <CartItem
           v-for="item in cartArray"
           :key="item.id"
@@ -30,6 +30,7 @@
           :price="sumPrice(item.id)"
           @minusPizzaHandler="minusPizza(item)"
           @plusPizzaHandler="plusPizza(item)"
+          @deleteSectionHandler="deleteSection(item.id)"
         />
       </div>
       <div class="cart__bottom">
@@ -65,7 +66,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import {
+  mapGetters,
+  mapActions
+} from 'vuex'
 import CartItem from '@/components/CartItem'
 
 export default {
@@ -90,6 +94,9 @@ export default {
     ...mapActions('cart', [
       'plusPizza',
       'minusPizza'
+    ]),
+    ...mapActions('cart', [
+      'deleteSection'
     ]),
     currentCount(id) {
       return this.cart[id].length

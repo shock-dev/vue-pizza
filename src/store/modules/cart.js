@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export default {
     namespaced: true,
 
@@ -33,8 +35,15 @@ export default {
             state.totalCount++
         },
 
-        minusTotalCount(state) {
-            state.totalCount--
+        minusTotalCount(state, count) {
+            if (count === undefined) {
+                return state.totalCount--
+            }
+            state.totalCount -= count
+        },
+
+        unsetSection(state, id) {
+            Vue.delete(state.cart, id)
         }
     },
 
@@ -51,6 +60,15 @@ export default {
                 commit('minusTotalPrice', pizza.price)
                 commit('minusTotalCount')
             }
+        },
+
+        deleteSection({ commit, state }, id) {
+            const sectionPrice = state.cart[id].reduce((s, i) => s + i.price, 0)
+            const sectionCount = state.cart[id].length
+
+            commit('unsetSection', id)
+            commit('minusTotalPrice', sectionPrice)
+            commit('minusTotalCount', sectionCount)
         }
     },
 
