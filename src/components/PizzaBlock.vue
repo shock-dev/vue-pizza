@@ -18,9 +18,14 @@
         </li>
       </ul>
       <ul>
-        <li class="active">26 см.</li>
-        <li>30 см.</li>
-        <li>40 см.</li>
+        <li
+          v-for="(size, index) in allSizes"
+          :key="index"
+          :class="{ active: activeSize === size, disabled: !sizes.includes(size) }"
+          @click="activeSize = size"
+        >
+          {{ size }} см.
+        </li>
       </ul>
     </div>
     <div class="pizza-block__bottom">
@@ -61,7 +66,8 @@ export default {
     return {
       allTypes: ['тонкое', 'традиционное'],
       activeType: this.types[0],
-      allSizes: [26, 30, 40]
+      allSizes: [26, 30, 40],
+      activeSize: this.sizes[0]
     }
   }
 }
