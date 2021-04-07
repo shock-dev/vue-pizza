@@ -50,6 +50,11 @@ import sorts from '@/resources/sorts'
 
 export default {
   name: 'Home',
+  metaInfo: {
+    title: 'Vue pizza',
+    titleTemplate: '%s - самая вкусная пицца во вселенной!',
+    htmlAttrs: { lang: 'ru' }
+  },
   components: {
     PizzaLoader,
     Categories,
