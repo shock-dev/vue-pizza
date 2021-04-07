@@ -30,7 +30,7 @@
     </div>
     <div class="pizza-block__bottom">
       <div class="pizza-block__price">от {{ price }} ₽</div>
-      <div class="button button--outline button--add">
+      <div class="button button--outline button--add" @click="clickBtnHandler">
         <svg
           width="12"
           height="12"
@@ -68,6 +68,18 @@ export default {
       activeType: this.types[0],
       allSizes: [26, 30, 40],
       activeSize: this.sizes[0]
+    }
+  },
+  methods: {
+    clickBtnHandler() {
+      const pizza = {
+        name: this.name,
+        imageUrl: this.imageUrl,
+        price: this.price,
+        size: this.activeSize,
+        type: this.allTypes[this.activeType]
+      }
+      this.$emit('plusPizza', pizza)
     }
   }
 }
