@@ -65,9 +65,6 @@ export default {
     categories,
     sorts
   }),
-  mounted() {
-    this.fetchPizzas()
-  },
   computed: {
     ...mapGetters('filters', [
       'category',
