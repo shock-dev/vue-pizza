@@ -32,13 +32,13 @@ export default {
     },
 
     actions: {
-        async fetchPizzas({ commit, state }) {
+        async fetchPizzas({ commit, state }, filters) {
             try {
                 if (state.error !== null) {
                     commit('clearError')
                 }
                 commit('startLoading')
-                const pizzas = await getPizzas()
+                const pizzas = await getPizzas(filters)
                 commit('setPizzas', pizzas)
             } catch(e) {
                 commit('setError', 'Не удалось загрузить данные.')
