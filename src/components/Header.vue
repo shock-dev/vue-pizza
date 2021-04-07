@@ -10,7 +10,7 @@
       </router-link>
       <div class="header__cart">
         <router-link class="button button--cart" :to="{ name: 'Cart' }">
-          <span>520 ₽</span>
+          <span>{{ totalPrice }} ₽</span>
           <div class="button__delimiter"></div>
           <svg
               width="18"
@@ -41,7 +41,7 @@
                 stroke-linejoin="round"
             />
           </svg>
-          <span>3</span>
+          <span>{{ totalCount }}</span>
         </router-link>
       </div>
     </div>
@@ -49,7 +49,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'Header'
+  name: 'Header',
+  computed: {
+    ...mapGetters('cart', [
+      'totalPrice',
+      'totalCount'
+    ])
+  }
 }
 </script>
