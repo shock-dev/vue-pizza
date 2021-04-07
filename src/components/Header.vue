@@ -4,7 +4,7 @@
       <router-link class="header__logo" :to="{ name: 'Home' }">
         <img width="38" src="../assets/img/pizza-logo.svg" alt="Pizza logo" />
         <div>
-          <h1>React Pizza</h1>
+          <h1>Vue Pizza</h1>
           <p>самая вкусная пицца во вселенной</p>
         </div>
       </router-link>
