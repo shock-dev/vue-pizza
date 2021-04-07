@@ -51,17 +51,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="cart cart--empty">
-      <h2>Корзина пустая <icon>😕</icon></h2>
-      <p>
-        Вероятней всего, вы не заказывали ещё пиццу.<br />
-        Для того, чтобы заказать пиццу, перейди на главную страницу.
-      </p>
-      <img src="../assets/img/empty-cart.png" alt="Empty cart" />
-      <router-link class="button button--black" :to="{ name: 'Home' }">
-        <span>Вернуться назад</span>
-      </router-link>
-    </div>
+    <EmptyCart v-else />
   </div>
 </template>
 
@@ -71,10 +61,11 @@ import {
   mapActions
 } from 'vuex'
 import CartItem from '@/components/CartItem'
+import EmptyCart from '@/components/EmptyCart'
 
 export default {
   name: 'Cart',
-  components: { CartItem },
+  components: { CartItem, EmptyCart },
   metaInfo: {
     title: 'Корзина',
     htmlAttrs: { lang: 'ru' }
