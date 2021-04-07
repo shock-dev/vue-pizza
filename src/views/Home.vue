@@ -89,7 +89,7 @@ export default {
       'plusPizza'
     ]),
     addPizzaHandler(id, pizza) {
-      this.plusPizza({ id, pizza })
+      this.plusPizza({ id, ...pizza })
     }
   }
 }
