@@ -8,8 +8,14 @@
     <h4 class="pizza-block__title">{{ name }}</h4>
     <div class="pizza-block__selector">
       <ul>
-        <li class="active">тонкое</li>
-        <li>традиционное</li>
+        <li
+          v-for="(name, index) in allTypes"
+          :key="index"
+          :class="{ active: activeType === index, disabled: !types.includes(index) }"
+          @click="activeType = index"
+        >
+          {{ name }}
+        </li>
       </ul>
       <ul>
         <li class="active">26 см.</li>
@@ -50,6 +56,13 @@ export default {
     rating: { type: Number, required: true },
     types: { type: Array, required: true },
     sizes: { type: Array, required: true }
+  },
+  data() {
+    return {
+      allTypes: ['тонкое', 'традиционное'],
+      activeType: this.types[0],
+      allSizes: [26, 30, 40]
+    }
   }
 }
 </script>
