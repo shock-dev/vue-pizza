@@ -96,6 +96,10 @@
 <script>
 export default {
   name: 'Cart',
+  metaInfo: {
+    title: 'Корзина',
+    htmlAttrs: { lang: 'ru' }
+  },
   data: () => ({
     isCartEmpty: false
   })
