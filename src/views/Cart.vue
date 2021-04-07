@@ -27,6 +27,7 @@
           :size="item.size"
           :type="item.type"
           :count="currentCount(item.id)"
+          :price="sumPrice(item.id)"
           @minusPizzaHandler="minusPizza(item)"
           @plusPizzaHandler="plusPizza(item)"
         />
@@ -92,6 +93,9 @@ export default {
     ]),
     currentCount(id) {
       return this.cart[id].length
+    },
+    sumPrice(id) {
+      return this.cart[id].reduce((s, i) => s + i.price, 0)
     }
   }
 }

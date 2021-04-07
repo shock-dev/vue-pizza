@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="cart__item-price">
-      <b>770 ₽</b>
+      <b>{{ price }} ₽</b>
     </div>
     <div class="cart__item-remove">
       <div class="button button--outline button--circle">
@@ -48,7 +48,8 @@ export default {
     imageUrl: { type: String, required: true },
     size: { type: Number, required: true },
     type: { type: String, required: true },
-    count: { type: Number, required: true }
+    count: { type: Number, required: true },
+    price: { type: Number, required: true }
   }
 }
 </script>
