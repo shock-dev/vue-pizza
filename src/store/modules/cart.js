@@ -23,8 +23,16 @@ export default {
             state.cart[id].splice(state.cart[id].length - 1, 1)
         },
 
+        resetCart(state) {
+            state.cart = {}
+        },
+
         plusTotalPrice(state, price) {
             state.totalPrice += price
+        },
+
+        resetTotalPrice(state) {
+            state.totalPrice = 0
         },
 
         minusTotalPrice(state, price) {
@@ -40,6 +48,10 @@ export default {
                 return state.totalCount--
             }
             state.totalCount -= count
+        },
+
+        resetTotalCount(state) {
+            state.totalCount = 0
         },
 
         unsetSection(state, id) {
@@ -69,6 +81,12 @@ export default {
             commit('unsetSection', id)
             commit('minusTotalPrice', sectionPrice)
             commit('minusTotalCount', sectionCount)
+        },
+
+        clearCart({ commit }) {
+            commit('resetCart')
+            commit('resetTotalPrice')
+            commit('resetTotalCount')
         }
     },
 
