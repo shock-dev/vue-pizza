@@ -8,19 +8,36 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Header from '@/components/Header'
 
 export default {
   name: 'App',
   components: { Header },
   mounted() {
-    this.fetchPizzas()
+    const { category, sortBy } = this
+    this.fetchPizzas({ category, sortBy })
   },
   methods: {
     ...mapActions('pizza', [
       'fetchPizzas'
     ])
+  },
+  computed: {
+    ...mapGetters('filters', [
+      'category',
+      'sortBy'
+    ])
+  },
+  watch: {
+    category() {
+      const { category, sortBy } = this
+      this.fetchPizzas({ category, sortBy })
+    },
+    sortBy() {
+      const { category, sortBy } = this
+      this.fetchPizzas({ category, sortBy })
+    }
   }
 }
 </script>
