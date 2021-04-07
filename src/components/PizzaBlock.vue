@@ -44,7 +44,6 @@
           />
         </svg>
         <span>Добавить</span>
-        <i>2</i>
       </div>
     </div>
   </div>
